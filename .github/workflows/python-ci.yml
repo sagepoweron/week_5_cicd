@@ -1,0 +1,38 @@
+name: Linter
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  flake8-lint:
+    runs-on: ubuntu-latest
+    name: Lint
+    steps:
+      - name: Check out source repository
+        uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+      - name: Flake8
+        uses: py-actions/flake8@v2
+
+  safety:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Some safety thing
+        run: echo Hello, world!
+        
+  
+  bandit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Linter
+      - uses: actions/checkout@v2
+      - name: Bandit Scan
+        uses: shundor/python-bandit-scan@9cc5aa4a006482b8a7f91134412df6772dbda22c
+        
+  
