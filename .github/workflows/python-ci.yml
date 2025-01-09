@@ -25,7 +25,7 @@ jobs:
         uses: py-actions/flake8@v2
 
       - name: Safety Check
-      - uses: safety/safety@2.3.4
+        uses: safety/safety@2.3.4
         with:
           api-key: ${{secrets.SAFETY_API_KEY}}
 
