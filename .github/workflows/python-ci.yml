@@ -25,14 +25,14 @@ jobs:
         uses: py-actions/flake8@v2
 
       - name: Safety Check
-        #run: pip install safety
-          #safety check -r requirements.txt --key ${{secrets.SAFETY_API_KEY}}
         uses: pyupio/safety-action@v1
         with:
           api-key: ${{ secrets.SAFETY_API_KEY }}
 
-      #- name: Bandit Scan
+      - name: Bandit Scan
         #uses: shundor/python-bandit-scan@9cc5aa4a006482b8a7f91134412df6772dbda22c
+        run: pip install bandit
+          pip bandit -r
 
       
         
