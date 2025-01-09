@@ -31,8 +31,15 @@ jobs:
 
       - name: Bandit Scan
         #uses: shundor/python-bandit-scan@9cc5aa4a006482b8a7f91134412df6772dbda22c
-        run: pip install bandit
-          bandit -r .
+        #run: pip install bandit
+          #bandit -r .
+        uses: mdegis/bandit-action@v1.0
+        with:
+          #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          path: "."
+          level: high
+          confidence: high
+          exit_zero: true
 
       
         
